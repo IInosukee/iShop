@@ -2,7 +2,7 @@
 Pour le start ensure iShop dans le serveur.cfg
 
 # Config Simple
-![image](https://user-images.githubusercontent.com/83782101/232259812-4dca5424-265a-4962-8540-65c998054c40.png)
+![image](https://user-images.githubusercontent.com/83782101/232259897-b5b3b5db-69a0-4891-843a-6101be9d50cb.png)
 
 # Crédits
 Par IInosukee#0667
