@@ -44,9 +44,11 @@ end
 
 local iShop = false
 local iShopIndex = 1
-iShopCountIndex = 1
+-- iShopCountIndex = 1
 local iPay = "money"
 local count = 0
+local ItemCount = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
 
 RMenu.Add('iShop_menu', 'main', RageUI.CreateMenu('Supérette', 'Que voulez-vous faire ?'))
 RMenu:Get('iShop_menu', 'main').Closed = function()
@@ -84,12 +86,12 @@ function OpenMenuShop()
                             end
                         end
                     end)
-                    for k,v in pairs (Config.Shop) do
-                        RageUI.List(v.label.." ~g~["..v.price.."$]~s~ ", Config.ItemCount, iShopCountIndex, nil, {}, true, function(h, a, s, ind)
-                            iShopCountIndex = ind
-                            local prix = v.price*iShopCountIndex
+                    for k,v in pairs(Config.Shop) do
+                        RageUI.List(v.label.." ~g~["..v.price.."$]~s~ ", ItemCount, v.index, nil, {}, true, function(h, a, s, ind)
+                            v.index = ind
+                            local prix = v.price*v.index
                             if s then 
-                                TriggerServerEvent("iShop:buy"..v.item, iShopCountIndex, iPay, prix)
+                                TriggerServerEvent("iShop:buy"..v.item, v.index, iPay, prix)
                             end
                         end)
                     end
@@ -110,7 +112,10 @@ Citizen.CreateThread(function()
                 if IsControlJustPressed(1,51) then
                     ReloadPlayerData()
                     if iShop == false then
-                        iShopCountIndex = 1
+                        for k,v in pairs(Config.Shop) do
+                            v.index = 1
+                        end
+                        iShopIndex = 1
                         OpenMenuShop()
                     end
                 end
