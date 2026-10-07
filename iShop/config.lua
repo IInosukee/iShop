@@ -22,36 +22,40 @@ Config = {
         {pos = vector3(-1221.79, -908.19, 11.32), heading = 31.01},
     },
     NPC = 'mp_m_shopkeep_01',
+    BlipLabel = "Magasin",
+
+    -- Distance (en mètres) pour interagir avec le vendeur côté client
+    InteractDistance = 2.0,
+    -- Distance max (en mètres) acceptée par le serveur lors d'un achat (anti-triche)
+    MaxBuyDistance = 5.0,
+    -- Quantité max achetable en une fois
+    MaxQuantity = 10,
+
     Shop = {
         --[[{
             label = Nom de l'objet qui sera affiché dans le menu RageUI,
             price = prix à l'unité de l'objet,
             item = nom de l'objet dans la base de données,
-            index = toujours sur 1,
         },]]
         {
             label = "Pain",
             price = 5,
             item = "bread",
-            index = 1,
         },
         {
             label = "Eau",
             price = 2,
             item = "water",
-            index = 1,
         },
         {
             label = "Téléphone",
             price = 600,
             item = "phone",
-            index = 1,
         },
         {
             label = "Coca",
             price = 15,
             item = "cola",
-            index = 1,
         },
     },
 }
